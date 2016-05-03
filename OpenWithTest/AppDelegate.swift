@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+
+        //  Read the clipboard to check if user has copied a PDF
+
         let pasteBoard = UIPasteboard.generalPasteboard()
         if pasteBoard.containsPasteboardTypes(["com.adobe.pdf"]) {
 
@@ -38,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+
+        //  Called from any iOS ActivityView attached to a PDF file, under 'Copy to OpenWithTest'
+
         pdfOpenWithDocumentURL = url
         return true
     }
